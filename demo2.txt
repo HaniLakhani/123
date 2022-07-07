@@ -1,0 +1,38 @@
+//button html
+
+<div class="col-md-12 text-center ">
+        <button class="btn btn-dark md-2" (mouseover)="submit()" (mouseout)="mousein()">submit</button>
+    </div> 
+
+//ts after nginit{}
+
+submit(){
+    console.log("button is clicked!")
+    console.log(this.stocks.length)
+    this.theme="table-dark"
+  }
+
+  mousein(){
+    this.theme="table-light"
+  }
+
+//pagination
+command: npm i ngx-pagination
+
+app module import NgxPaginationModule
+
+<tr *ngFor="let i of posts | paginate:{itemsPerPage:10,currentPage:p}">
+p=1 in ts file
+after ending table tag <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+//for api create service
+import httpclient
+
+//make private variable in constuctor (private _httpclient:HttpClient)
+
+//make method below constructor
+getpost(){
+    return this._httpclient.get(this.url)
+  }
+
+
